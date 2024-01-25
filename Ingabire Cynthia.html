@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Project 3</title>
+	<link rel="stylesheet" type="text/css" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+	<style>
+
+		.body{
+			background: pink;
+			height: 400px;
+			text-align: center;
+			border-radius: 10px;
+		}
+		 h1{
+			font-family: monospace;
+			font-size: 50px;
+			margin-top: 40px;
+			color: white;
+		}
+		#bod{
+			border-radius: 10px;
+			text-align: center;
+			font-weight: bold;
+			font-family: monospace;
+			padding: 10px;
+			width: 1000px;
+			margin-left: 150px;
+			margin-top: 100px;
+		}
+        .cont{
+        	text-align: center;
+        	font-family: monospace;
+        }
+        .service{
+           text-align: center;
+           background: royalblue;
+           height: 500px;	
+        }
+        .box{
+        	width: 300px;
+        	height: 390px;
+        	background: white;
+        	border-radius: 10px;
+        	float: left;
+            margin-left: 100px;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .box img{
+        	width: 150px;
+        	height: 150px;
+        	border-radius: 50%;
+        	margin-top: 40px;
+        	border: 5px solid black;
+        }
+        .box button{
+        	width: 200px;
+        	padding: 10px;
+        	border: 1px solid black;
+        	background: white;
+        }
+        .box button:hover{
+        	background: royalblue;
+        	transition: 0.5s ease-in-out;
+        	color: white;
+        	border: royalblue;
+        }
+        .contact{
+        	height: 300px;
+        	background: royalblue;
+        	width: 500px;
+        	margin-left: 370px;
+
+        }
+        .contact input{
+        	display: block;
+        	width: 400px;
+        	padding: 10px;
+        	margin: 5px;
+        }
+        .contact button{
+        	width: 420px;
+        	background: #333;
+        	color: white;
+            padding: 7px;
+        	margin: 5px;
+        }
+	</style>
+<div class="container">
+	<div class="body">
+		<h1>WELCOME TO CODEJIKA COMPANY <br> LIMITED</h1>
+		
+	    <p id="bod">Welcome to large organistaion of software developers</p>
+	</div><br>
+	<div class="cont">
+		<h2>Get to know more about us</h2>
+		<p>We are large company that works in Half of african countries</p>
+	</div>
+	<div class="service">
+		<h2 style="color: white">SERVICES</h2>
+		<div class="box">
+			<img src="images/emoji.jpg">
+			<p>CHAIR PERSON <br> CODEJIKA</p>
+			<button>View More</button>
+		</div>
+		<div class="box">
+			<img src="images/emoh.jpg">
+			<p>FOUNDER <br> CODEJIKA</p>
+			<button>View More</button>
+		</div>
+		<div class="box">
+			<img src="images/unnamed.png">
+			<p>SECRETARY <br> CODEJIKA</p>
+			<button>View More</button>
+		</div>
+	</div>
+	<div class="contact">
+		<form method="POST">
+		<h2 style="text-align: center;color: white;">CONTACT US</h2>
+		<input style="margin-left: 40px;" type="text" name="Names" placeholder="Enter Names...">
+		<input style="margin-left: 40px;" type="email" name="Email" placeholder="Enter Email...">
+		<input style="margin-left: 40px;" type="Password" name="Password" placeholder="Enter Password...">
+		<button style="margin-left: 40px;" name="Submit">Submit</button>	
+	</div>
+</div>
+<?php
+$conn=mysqli_connect("localhost","root","","user");
+if(isset($_POST['Submit'])){
+	$name=$_POST['Names'];
+	$mail=$_POST['Email'];
+	$pwd=$_POST['Password'];
+
+	$insert=mysqli_query($conn,"INSERT INTO user(Names,Email,Password)Values('$name','$mail','$pwd')");
+	if($insert){
+      echo"Thank you for your submittion";
+}
+}
+?>
+</form>
+</body>
+</html>
